@@ -44,7 +44,7 @@ class G2(Algebra):
 
 **code**
 ```
-...
+...python
 #example
 with G3() as alg:
     alg.no_labels = False
@@ -67,7 +67,9 @@ with G3() as alg:
 # note:
 #   p is some scalar number which appeared (and can expres some work done?)
 #   M is moment of force and it is bivector (or sometimes pseudovector)
+```
 
+```python
 #example
 with G3() as alg:
     alg.no_labels = True
