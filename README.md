@@ -44,7 +44,7 @@ class G2(Algebra):
 
 **code**
 ```
-...python
+```python
 #example
 with G3() as alg:
     alg.no_labels = False
