@@ -43,7 +43,7 @@ class G2(Algebra):
 ## Example of code run
 
 **code**
-```
+
 ```python
 #example
 with G3() as alg:
