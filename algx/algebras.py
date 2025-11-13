@@ -3,6 +3,7 @@ from algx import Algebra
 # Geometric algebra |G2|=4 of standart 2D physical space
 class G2(Algebra):
     def init_table(self):
+        dim = 2
         labels = ["1", "x", "y", "xy"]
         table = [
                     [	  1j,	  1+1j,	    2+1j,	3+1j,	],
@@ -10,12 +11,13 @@ class G2(Algebra):
                     [	2+1j,	  3-1j,	      1j,	1-1j,	],
                     [	3+1j,	  2-1j,	    1+1j,    -1j,	],
                 ]
-        return table, labels, None
+        return dim, table, labels, None
         
         
 # Geometric algebra |G3|=8 of standart 3D physical space
 class G3(Algebra):
     def init_table(self):
+        dim = 3
         labels = ["1", "x", "y", "z", "xy","xz","yz","xyz"]
         table = [
 [	1j,  	1+1j,  	2+1j,  	3+1j,  	4+1j,  	5+1j,  	6+1j,  	7+1j,  	],
@@ -27,7 +29,7 @@ class G3(Algebra):
 [	6+1j,  	7+1j,  	3-1j,  	2+1j,  	5+1j,  	4-1j,  	-1j,  	1-1j,  	],
 [	7+1j,  	6+1j,  	5-1j,  	4+1j,  	3-1j,  	2-1j,  	1-1j,  	-1j,  	],
                 ]
-        return table, labels, None
+        return dim, table, labels, None
         
         
 """

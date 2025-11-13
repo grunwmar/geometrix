@@ -60,9 +60,6 @@ class Vector:
         result = self._parent.mul(coeff_a, coeff_b)
         return self(result)
 
-    def __str__(self):
-        return ~self
-
     @property
     def pseudo_scalar(self):
         return self[-1]
@@ -71,8 +68,8 @@ class Vector:
     def scalar(self):
         return self[0]
         
-    def __invert__(self):
-        return prettyfy(self[...], self._parent._labels)
+    def __str__(self):
+        return prettyfy(self[...], self._parent._labels, self._parent.dim, self._parent.no_labels)
         
 
 
@@ -80,13 +77,15 @@ class Algebra(Abstract):
 
     def __init__(self, labels=None):
         if labels is None:
-            matrix, labels, mod = self.init_table()
+            dim, matrix, labels, mod = self.init_table()
             
         self.size = check_matrix_dim(matrix, len(labels))
+        self.dim = dim
         self._labels = [f"{i}" for i in labels]
         self.mod = mod
         self._matrix = matrix
         self._dict = {self._labels[i]:self[i] for i in range(self.size)}
+        self.no_labels = False
 
 
     @abstract
@@ -104,6 +103,8 @@ class Algebra(Abstract):
         return Vector(self, c)
 
     def __enter__(self):
+        if self.dim is None:
+            raise ValueError("Variable dim must be set.")
         return self
 
     def __exit__(self, *x):
